@@ -15,7 +15,9 @@ class CategoriesContainer extends Component {
             <div>
                 <h2>Categories</h2>
                 <p>Choose what type of date you want</p>
-                {keywords}
+                <div>{keywords}</div>
+                
+                <button>Submit</button>
             </div>
         )
     }

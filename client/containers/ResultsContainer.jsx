@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import Results from "../components/Results.jsx"
 
 export class ResultsContainer extends Component {
-
+    
     render() {
         return (
-            <h1>TEST</h1>
+            <div>
+                <h1>Results</h1>
+                <Results/>
+            </div>
         )
     }
 }
