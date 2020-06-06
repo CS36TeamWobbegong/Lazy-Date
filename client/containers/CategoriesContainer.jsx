@@ -9,10 +9,10 @@ class CategoriesContainer extends Component {
         const categories = ['concert', 'sports', 'hike', 'beach', 'skydive'];
         const keywords = [];
         for (let i = 0; i < categories.length; i++) {
-            keywords.push(<button>{categories[i]}</button>);
+            keywords.push(<button key={i}>{categories[i]}</button>);
         }
         return (
-            <div>
+            <div className='box'>
                 <h2>Categories</h2>
                 <p>Choose what type of date you want</p>
                 <div>{keywords}</div>

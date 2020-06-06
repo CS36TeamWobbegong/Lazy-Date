@@ -4,7 +4,7 @@ export class Results extends Component {
     
     render() {  
         return (
-            <div>
+            <div className='resultBox'>
             <img src="" alt="Image Here"/>
                 <ul>
                     <li>Name</li>

@@ -5,7 +5,7 @@ export class ResultsContainer extends Component {
     
     render() {
         return (
-            <div>
+            <div className='box'>
                 <h1>Results</h1>
                 <Results/>
             </div>

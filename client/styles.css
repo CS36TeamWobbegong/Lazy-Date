@@ -1,0 +1,11 @@
+.box {
+    background-color: cadetblue;
+    border: black solid 1px;
+    padding: 3rem;
+    margin: 3rem;
+}
+
+.resultBox {
+    background: beige;
+    border: purple solid 1px;
+}
