@@ -28,6 +28,3 @@ app.listen(PORT, () => console.log(`now connected to port ${PORT}`));
 
 //export server
 module.exports = app
-
-
-
