@@ -4,7 +4,9 @@
   "description": "Wobbegongs on Parade",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env NODE_ENV=production node Server/server.js",
+    "build": "cross-env NODE_ENV=production webpack",
+    "dev": "cross-env NODE_ENV=development concurrently \"webpack-dev-server --open --content-base\" \"nodemon Server/server.js\""
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,7 @@
   },
   "homepage": "https://github.com/CS36TeamWobbegong/WobbegongScratchProject#readme",
   "dependencies": {
+    "concurrently": "^5.2.0",
     "express": "^4.17.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
@@ -26,6 +29,7 @@
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
     "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.2",
     "css-loader": "^3.5.3",
     "nodemon": "^2.0.4",
     "style-loader": "^1.2.1",
