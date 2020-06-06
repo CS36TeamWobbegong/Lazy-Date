@@ -9,7 +9,7 @@ module.exports = {
   },
   devServer: {
     publicPath: '/build/',
-    contentBase: path.resolve(__dirname, 'Client'),
+    contentBase: path.resolve(__dirname, 'client'),
     proxy: {
       "/api": "http://localhost:3000"
     }

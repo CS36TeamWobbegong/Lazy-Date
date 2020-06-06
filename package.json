@@ -4,9 +4,9 @@
   "description": "Wobbegongs on Parade",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node Server/server.js",
+    "start": "cross-env NODE_ENV=production node server/server.js",
     "build": "cross-env NODE_ENV=production webpack",
-    "dev": "cross-env NODE_ENV=development concurrently \"webpack-dev-server --open --content-base\" \"nodemon Server/server.js\""
+    "dev": "cross-env NODE_ENV=development concurrently \"webpack-dev-server --open --content-base\" \"nodemon server/server.js\""
   },
   "repository": {
     "type": "git",
