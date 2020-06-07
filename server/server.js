@@ -6,7 +6,7 @@ const path = require('path')
 //node-fetch
 const nodeFetch = require('node-fetch')
 //declare a router for api requests
-// const apiRouter = require('./routes/api.js')
+const apiRouter = require('./routes/api.js')
 
 
 //initialize server
