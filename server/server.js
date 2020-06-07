@@ -22,14 +22,14 @@ app.use(express.urlencoded({ extended: true }));
 //static files
 app.use(express.static(path.resolve(__dirname, '../client')))
 app.use('/build', express.static(path.resolve(__dirname, '../build')))
+//send /api requests to api router
+app.use('/api', apiRouter)
 //handler for '/'
 app.get('/', (req, res) => {
     console.log('inside first get');
     res.sendStatus(200)
 })
-//send /api requests to api router
 
-// app.use('/api', apiRouter)
 
 //generic app get handler
 //route error handler
