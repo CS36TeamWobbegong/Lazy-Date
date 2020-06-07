@@ -7,7 +7,7 @@ const maincontroller = require('../controllers/maincontroller');
 const apiRouter = express.Router();
 
 //router method for api/search received on server
-apiRouter.get('/search/yelp', maincontroller.getYelpRecs, (req, res) =>
+apiRouter.post('/search/yelp', maincontroller.getYelpRecs, (req, res) =>
   res.status(200).json(res.locals.results)
 );
 
