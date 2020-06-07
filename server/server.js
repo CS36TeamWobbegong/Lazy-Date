@@ -33,17 +33,19 @@ app.get('/', (req, res) => {
 
 //generic app get handler
 //route error handler
-app.use('*', (req, res, err) => {
+app.use('*', (req, res, next) => {
     console.log('inside error handler');
     res.sendStatus(404)
 })
 //app global error handler
 app.use((err, req, res, next) => {
-    // const errObj = {
-    //    message: '500 Error' 
-    // }
-
-    res.sendStatus(500)
+    const defaultError = {
+        message: 'Server side error, please try again',
+        log: '500 Error'
+    }
+    const errorMessage = Object.assign(defaultError, err)
+    console.log(defaultError.log)
+    res.status(500).send(errorMessage.message)
 })
 //call server to listen
 app.listen(PORT, () => console.log(`now connected to port ${PORT}`));
