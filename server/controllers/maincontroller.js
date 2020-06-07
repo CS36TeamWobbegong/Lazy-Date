@@ -29,16 +29,25 @@ maincontroller.getYelpRecs = (req, res, next) => {
       return data.json()})
     //then assign results to res.locals.results
     .then(results => {
-      res.locals.results = results;
-    //console.log for development purposes to see what returns
-    console.log('This is results', res.locals.results);
-    //return next()
-    return next()})
+      //declare an empty array to hold components of results to send to client
+      let newArr = [];
+      //utilize a for loop to iterate through the results.businesses array
+      for(let i = 0; i <results.businesses.length; i++) {
+      //create a deconstructed object for businesses at each index
+      const {name, image_url, location, display_phone} = results.businesses[i];
+      //push the deconstructed object to the empty array 
+      //ran join on the location.display_address to turn it into a string
+      newArr.push({name: name, image_url: image_url, location: location.display_address.join(', '), display_phone: display_phone})
+      }
+      //add newArr to the res locals results
+      res.locals.results = newArr;
+      //return results to router
+      return next()})
     .catch(err => {
-      console.log(err);
-      res.status(400).send('Getting recommendations failed')
+      return next({
+        log: "Error in getYelpRecs" + err,
+      })
     })
-    //ulitmately return results as an array of objects
 };
 
 maincontroller.getSGRecs = (req, res, next)=> {
