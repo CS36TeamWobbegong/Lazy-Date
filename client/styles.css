@@ -1,11 +1,39 @@
+ * {
+    box-sizing: border-box;
+}
+
 .box {
-    background-color: cadetblue;
+    background-color:  #470C3B;;
     border: black solid 1px;
     padding: 3rem;
     margin: 3rem;
 }
 
 .resultBox {
-    background: beige;
-    border: purple solid 1px;
+    background: #C0576F;
+    border: #FFBD83 12px;
+    
+}
+
+.resultImage{
+    height: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.resultName {
+    text-align: center;
+}
+
+.resultImage img {
+    max-height: 100%;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+    text-align: center;
 }
