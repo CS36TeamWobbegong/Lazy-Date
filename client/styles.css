@@ -1,11 +1,47 @@
+ * {
+    box-sizing: border-box;
+}
+
+body {
+    background: #733944;
+    color: #F2CEAE;
+}
+
 .box {
-    background-color: cadetblue;
-    border: black solid 1px;
+    background-color: #0D1E40;;
+    border:#0D1E40 solid 1px;
     padding: 3rem;
     margin: 3rem;
 }
 
 .resultBox {
-    background: beige;
-    border: purple solid 1px;
+    background: #F2CEAE;
+    color: #0D1E40; 
+    border: #0D1E40 solid 2px;
+    padding: 12px;
+    margin: 12px;
+    
+}
+
+.resultImage{
+    height: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.resultName {
+    text-align: center;
+}
+
+.resultImage img {
+    max-height: 100%;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+    text-align: center;
 }

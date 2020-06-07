@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import CategoriesContainer from './containers/CategoriesContainer.jsx';
 import ResultsContainer from './containers/ResultsContainer.jsx';
 
+import './styles.css'
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -55,7 +57,7 @@ class App extends Component {
             <div>
                 <h1 className="title">Better Together</h1>
                 <CategoriesContainer handleSubmit={this.handleSubmit} optionLocation={this.state.optionLocation} optionDescription={this.state.optionDescription} />
-                <ResultsContainer />
+                <ResultsContainer results={this.state.results} />
             </div>
         )
     }
