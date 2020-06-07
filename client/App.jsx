@@ -26,7 +26,7 @@ class App extends Component {
         console.log('button clicked!')
         e.preventDefault()
         const requestBody = {
-            categories: e.target.optionDescription.value,
+            categories: `${e.target.optionDescription.value}, ${this.state.optionCategory[Math.floor(Math.random() * this.state.optionCategory.length)]}`,
             location: e.target.optionLocation.value,
         }
         console.log(requestBody);
