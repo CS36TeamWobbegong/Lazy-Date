@@ -9,7 +9,7 @@ maincontroller.getYelpRecs = (req, res, next) => {
   //declare a variable to hold string/number of zip code
   const urlLocation = req.params.location;
   //use object literals to build api call string with result limit of 5
-  const apiCall = `https://api.yelp.com/v3/businesses/search?limit=5&term=${urlString}&location=${urlLocation}`;
+  const apiCall = `https://api.yelp.com/v3/businesses/search?limit=5&term=${urlString}&location=${urlLocation}&radius=5000`;
   //example: https://api.yelp.com/v3/businesses/search?limit=5&term=hiking&location=90025
   //make API call with apiCall variable as first parameter, and second parameter as object with header auth key and stringify body command
   fetch(apiCall, 
