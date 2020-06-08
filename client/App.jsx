@@ -39,10 +39,10 @@ class App extends Component {
         e.preventDefault();
         const categories = `${this.state.dateType}`;
         const location = e.target.location.value;
-        if (location === "Select one..." || !categories){
+        if (location === "Select one..."){
             return;
         }
-        
+        console.log(location, 'location')
         fetch(`/api/search/yelp/${categories}/${location}`)
             .then((data) => data.json())
             .then((jsonData) => {

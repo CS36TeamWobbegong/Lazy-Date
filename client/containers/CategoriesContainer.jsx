@@ -29,12 +29,12 @@ class CategoriesContainer extends Component {
         const locationArray = [];
         for (let i = 0; i < optionLocation.length; i++) {
             locationArray.push(
-                <option name="optionLocation" value={optionLocation[i].city} id={optionLocation[i].city} key={i}>{optionLocation[i].city}</option>
+                <option name="optionLocation" value={optionLocation[i].zipcode} id={optionLocation[i].city} key={i}>{optionLocation[i].city}</option>
             )
         }
-        
+
         let displayDateType;
-        if (this.props.dateType){
+        if (this.props.dateType) {
             displayDateType = this.props.dateType.split(",").join(" and ")
         }
 
@@ -43,15 +43,10 @@ class CategoriesContainer extends Component {
 
 
                 <form onSubmit={this.props.handleSubmit}>
-                    {/* <label>
-                        <h2>Categories</h2>
-                        <p>Choose what type of date you want</p>
-                    </label>
-                    {descriptionArray} */}
-                        <h2>Neighborhood</h2>
-                    <select id="location" name="location">
-                    <option>Select one...</option>
-                    {locationArray}
+                    <h2>Neighborhood</h2>
+                    <select id="location" name="location" >
+                        <option>Select one...</option>
+                        {locationArray}
                     </select>
                     <p>{displayDateType ? displayDateType : null}</p>
                     <button onClick={this.props.randomize} >RANDOMIZE</button>
