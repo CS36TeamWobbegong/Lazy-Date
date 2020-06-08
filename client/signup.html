@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign-up</title>
 </head>
 <body>
-    TESTING
-    <a href='./home'>GO TO CLIENT</a>
+    Signup
+    <form action='/signup' method='POST'>
+        <input type="text" placeholder="username" name="username">
+        <input type="password" placeholder="password" name="password">
+        <input type="submit" value='User Signup'>
+    </form>
+    <br>
+    <p>Existing user?  Click <a href="./login.html">here</a> to log in</p>
 </body>
 </html>

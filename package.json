@@ -20,7 +20,9 @@
   "homepage": "https://github.com/CS36TeamWobbegong/WobbegongScratchProject#readme",
   "dependencies": {
     "concurrently": "^5.2.0",
+    "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
+    "mongoose": "^5.9.18",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },

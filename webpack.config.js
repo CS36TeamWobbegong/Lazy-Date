@@ -10,9 +10,9 @@ module.exports = {
   },
   devServer: {
     publicPath: '/build/',
-    contentBase: path.resolve(__dirname, 'client'),
+    contentBase: path.resolve(__dirname, 'client/signup.html'),
     proxy: {
-      "/api": "http://localhost:3000"
+      "/": "http://localhost:3000"
     }
   },
   module: {
