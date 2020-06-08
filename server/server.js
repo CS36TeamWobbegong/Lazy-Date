@@ -18,18 +18,27 @@ const PORT = 3000;
 //set-up request processing
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+// app.get('/', (req, res) => {
+//     console.log('LINE 22 DO I SHOW UP');
+//     res.redirect('/signup.html');
+// })
 //static files
 app.use(express.static(path.resolve(__dirname, '../client')))
 app.use('/build', express.static(path.resolve(__dirname, '../build')))
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../client/signup.html'))
+// })
+
+//app.use('/home', express.static(path.resolve(__dirname, '../client')))
 //send /api requests to api router
 app.use('/api', apiRouter)
 
 //handler for '/'
-app.get('/', (req, res) => {
-    console.log('inside first get');
-    res.sendStatus(200)
-})
+// app.get('/', (req, res) => {
+//     // I DONT THINK THIS STUFF MATTERS  WE NEVER ENTER THIS EXECUTION CONTEXT
+//     console.log('inside first get');
+//     res.sendStatus(200)
+// })
 
 //generic app get handler
 //route error handler

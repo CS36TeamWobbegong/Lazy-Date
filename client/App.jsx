@@ -23,9 +23,10 @@ class App extends Component {
     }
 
     handleSubmit(e) {
-        e.preventDefault()
+        e.preventDefault();
         const categories = `${e.target.optionDescription.value},${this.state.optionCategory[Math.floor(Math.random() * this.state.optionCategory.length)]}`;
-        const location = e.target.optionLocation.value;
+        const location = e.target.location.value;
+        
 
         fetch(`/api/search/yelp/${categories}/${location}`)
             .then((data) => {

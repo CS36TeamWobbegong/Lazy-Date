@@ -45,3 +45,11 @@ li {
     list-style-type: none;
     text-align: center;
 }
+
+.submit-btn {
+    border-radius: .4rem;
+    padding: .5rem 1.5rem;
+    margin-top: .5rem;
+
+}
+
