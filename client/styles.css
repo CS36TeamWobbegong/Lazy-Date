@@ -3,21 +3,35 @@
 }
 
 body {
-    background: #733944;
-    color: #F2CEAE;
+    background: #5C2532;
+    color: #F5ACBD;
+    font-family: 'Pacifico', cursive;
+}
+
+.title {
+    text-align: center;
+    font-size: 6rem;
+  
 }
 
 .box {
-    background-color: #0D1E40;;
-    border:#0D1E40 solid 1px;
+    background-color:#A9445C;;
+    border:#A9445C solid 1px;
     padding: 3rem;
     margin: 3rem;
 }
 
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .resultBox {
-    background: #F2CEAE;
-    color: #0D1E40; 
-    border: #0D1E40 solid 2px;
+    background: #5C4148;
+    color: #F5ACBD; 
+    border: #F5ACBD solid 2px;
     padding: 12px;
     margin: 12px;
     
@@ -46,10 +60,39 @@ li {
     text-align: center;
 }
 
-.submit-btn {
+.randomize-btn {
     border-radius: .4rem;
     padding: .5rem 1.5rem;
     margin-top: .5rem;
-
+    background: #5C4148;
+    color: #F5ACBD;   
 }
 
+.select {
+    border-radius: .4rem;
+    padding: .5rem 1.5rem;
+    margin-top: .5rem;
+    background: #5C4148;
+    color: #F5ACBD;
+}
+
+/* Color Theme Swatches in Hex */
+.Dating-During-the-Apocalypse-no-6-1-hex { color: #5C2532; }
+.Dating-During-the-Apocalypse-no-6-2-hex { color: #F5ACBD; }
+.Dating-During-the-Apocalypse-no-6-3-hex { color: #DC5978; }
+.Dating-During-the-Apocalypse-no-6-4-hex { color: #5C4148; }
+.Dating-During-the-Apocalypse-no-6-5-hex { color: #A9445C; }
+
+/* Color Theme Swatches in RGBA */
+.Dating-During-the-Apocalypse-no-6-1-rgba { color: rgba(91, 37, 50, 1); }
+.Dating-During-the-Apocalypse-no-6-2-rgba { color: rgba(245, 171, 189, 1); }
+.Dating-During-the-Apocalypse-no-6-3-rgba { color: rgba(219, 88, 119, 1); }
+.Dating-During-the-Apocalypse-no-6-4-rgba { color: rgba(91, 65, 71, 1); }
+.Dating-During-the-Apocalypse-no-6-5-rgba { color: rgba(168, 68, 91, 1); }
+
+/* Color Theme Swatches in HSLA */
+.Dating-During-the-Apocalypse-no-6-1-hsla { color: hsla(345, 42, 25, 1); }
+.Dating-During-the-Apocalypse-no-6-2-hsla { color: hsla(345, 79, 81, 1); }
+.Dating-During-the-Apocalypse-no-6-3-hsla { color: hsla(345, 65, 60, 1); }
+.Dating-During-the-Apocalypse-no-6-4-hsla { color: hsla(345, 17, 30, 1); }
+.Dating-During-the-Apocalypse-no-6-5-hsla { color: hsla(345, 42, 46, 1); }
