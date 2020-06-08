@@ -13,10 +13,23 @@ class App extends Component {
             optionCategory: ["Games", "Arts and culture", "Outdoor", "Culinary"],
             optionDescription: ["Fun", "Adventure", "Relaxation", "Entertainment"],
             optionLocation: [
+                { city: "Arts District", zipcode: 90013 },
+                { city: "Beverly Hills", zipcode: 90210 },
+                { city: "Burbank", zipcode: 91505 },
+                { city: "Culver City", zipcode: 90232 },
+                { city: "DTLA", zipcode: 90017 },
+                { city: "Glendale", zipcode: 91204 },
+                { city: "Hollywood", zipcode: 90028 },
+                { city: "Koreatown", zipcode: 90010 },
+                { city: "Los Feliz", zipcode: 90027 },
+                { city: "Mid City", zipcode: 90019 },
+                { city: "NoHo", zipcode: 91606 },
                 { city: "Santa Monica", zipcode: 90401 },
-                { city: "West Hollywood", zipcode: 90069 },
+                { city: "Sherman Oaks", zipcode: 91403 },
+                { city: "Silverlake", zipcode: 90026 },
                 { city: "Studio City", zipcode: 91604 },
-                { city: "Downtown LA", zipcode: 90017 }
+                { city: "Venice", zipcode: 90292},
+                { city: "WeHo", zipcode: 90069 },
             ],
             dateType: null,
         }
@@ -58,7 +71,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <h1 className="title">Better Together</h1>
+                <h1 className="title">Lazy Date</h1>
                 <CategoriesContainer handleSubmit={this.handleSubmit} optionLocation={this.state.optionLocation} optionDescription={this.state.optionDescription} randomize={this.randomize} dateType={this.state.dateType} />
                 <ResultsContainer results={this.state.results} />
             </div>

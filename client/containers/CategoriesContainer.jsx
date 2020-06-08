@@ -43,17 +43,20 @@ class CategoriesContainer extends Component {
 
 
                 <form onSubmit={this.props.handleSubmit}>
-                    <h2>Neighborhood</h2>
+                    <h2>Let's explore:</h2>
                     <select id="location" name="location" >
                         <option>Select one...</option>
                         {locationArray}
                     </select>
-                    <p>{displayDateType ? displayDateType : null}</p>
-                    <button onClick={this.props.randomize} >RANDOMIZE</button>
+                    <h2>Looking for:</h2>
+                    <button onClick={this.props.randomize} >Anything EXCEPT dinner & drinks</button>
                 </form>
             </div>
         )
     }
 }
+
+//<p>{displayDateType ? displayDateType : null}</p>
+//<button onClick={this.props.randomize} >Anything EXCEPT dinner & drinks</button>
 
 export default CategoriesContainer;
