@@ -9,7 +9,7 @@ export class Results extends Component {
         return (
             <div className='resultBox'>
               <figure className='resultImage'>
-                <img src={result.image_url} alt="Image Here"/>
+                <img src={result.image_url} alt="Image failed to load"/>
               </figure>
               <div>
               <h3 className='resultName'>{result.name}</h3>
