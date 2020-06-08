@@ -33,10 +33,10 @@ class CategoriesContainer extends Component {
             )
         }
 
-        let displayDateType;
-        if (this.props.dateType) {
-            displayDateType = this.props.dateType.split(",").join(" and ")
-        }
+        // let displayDateType;
+        // if (this.props.dateType) {
+        //     displayDateType = this.props.dateType.split(",").join(" and ")
+        // }
 
         return (
             <div className='box'>
@@ -49,7 +49,7 @@ class CategoriesContainer extends Component {
                         {locationArray}
                     </select>
                     <h2>Looking for:</h2>
-                    <button onClick={this.props.randomize} >Anything EXCEPT dinner & drinks</button>
+                    <button>Anything EXCEPT dinner & drinks</button>
                 </form>
             </div>
         )
