@@ -10,39 +10,42 @@ class App extends Component {
         this.state = {
             //results from server
             results: [],
-            optionCategory: ["games", "arts and culture", "outdoor", "culinary"],
-            optionDescription: ["fun", "adventure", "relaxation", "entertainment"],
+            optionCategory: ["Games", "Arts and culture", "Outdoor", "Culinary"],
+            optionDescription: ["Fun", "Adventure", "Relaxation", "Entertainment"],
             optionLocation: [
                 { city: "Santa Monica", zipcode: 90401 },
                 { city: "West Hollywood", zipcode: 90069 },
                 { city: "Studio City", zipcode: 91604 },
-                { city: "DTLA", zipcode: 90017 }
-            ]
+                { city: "Downtown LA", zipcode: 90017 }
+            ],
+            dateType: null,
         }
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.randomize = this.randomize.bind(this);
+    }
+
+    randomize() {
+        // grab one random category
+        const category = this.state.optionCategory[Math.floor(Math.random() * this.state.optionCategory.length)];
+        const description = this.state.optionDescription[Math.floor(Math.random() * this.state.optionDescription.length)];
+        // one random description
+        this.setState({
+            dateType: `${category},${description}`
+        });
+
     }
 
     handleSubmit(e) {
-        console.log('button clicked!')
-        e.preventDefault()
-        const requestBody = {
-            categories: `${e.target.optionDescription.value}, ${this.state.optionCategory[Math.floor(Math.random() * this.state.optionCategory.length)]}`,
-            location: e.target.optionLocation.value,
+        e.preventDefault();
+        const categories = `${this.state.dateType}`;
+        const location = e.target.location.value;
+        if (location === "Select one..."){
+            return;
         }
-        console.log(requestBody);
-        fetch('/api/search/yelp', {
-            method: 'POST',
-            body: JSON.stringify(requestBody),
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        })
-            .then((data) => {
-                console.log(data, '<---- DATA IN FIRST THEN')
-                return data.json();
-            })
+        console.log(location, 'location')
+        fetch(`/api/search/yelp/${categories}/${location}`)
+            .then((data) => data.json())
             .then((jsonData) => {
-                console.log(jsonData, '<---- DATA IN SECOND THEN')
                 this.setState({
                     results: jsonData
                 })
@@ -56,7 +59,7 @@ class App extends Component {
         return (
             <div>
                 <h1 className="title">Better Together</h1>
-                <CategoriesContainer handleSubmit={this.handleSubmit} optionLocation={this.state.optionLocation} optionDescription={this.state.optionDescription} />
+                <CategoriesContainer handleSubmit={this.handleSubmit} optionLocation={this.state.optionLocation} optionDescription={this.state.optionDescription} randomize={this.randomize} dateType={this.state.dateType} />
                 <ResultsContainer results={this.state.results} />
             </div>
         )
