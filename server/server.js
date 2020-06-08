@@ -50,7 +50,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
     console.log('req on initial get ->>>>>>>>', req)
     console.log(req.cookies, ' <====== req.cookies in initial get')
-    if (req.cookies.test === 'practice') {
+    if (req.cookies.ambiguous) {
         return res.redirect('/home')
     }
     res.redirect('/signup.html');
@@ -86,7 +86,7 @@ app.post('/signup', (req, res) => {
         } else {
             console.log('SUCCESSFULLY ADDED USER')
             console.log(data)
-            res.cookie('ambiguous', `${data._id}`, { httpOnly: true, maxAge: 1000000 })
+            res.cookie('ambiguous', `${data._id}`, { httpOnly: true, maxAge: 100000000 })
             res.redirect('/home')
         }
     })

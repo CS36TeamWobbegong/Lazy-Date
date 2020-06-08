@@ -32,25 +32,36 @@ class App extends Component {
                 { city: "WeHo", zipcode: 90069 },
             ],
             dateType: null,
+            favorites: []
         }
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.randomize = this.randomize.bind(this);
+        this.addToFavs = this.addToFavs.bind(this);
     }
 
-    randomize() {
-        // grab one random category
-        const category = this.state.optionCategory[Math.floor(Math.random() * this.state.optionCategory.length)];
-        const description = this.state.optionDescription[Math.floor(Math.random() * this.state.optionDescription.length)];
-        // one random description
-        this.setState({
-            dateType: `${category},${description}`
-        });
-
+    
+    addToFavs(e){
+        // add event to favorites array in state, if event does not already exist in favorites
+        let object = this.state.favorites[e.target.id];
+        
+        let temp = this.state.favorites;
+        if (!this.state.results.includes(object)){
+            temp.push(this.state.results[e.target.id])
+            this.setState({
+                favorites: temp
+            })
+        }
     }
+    
+    componentDidUpdate(){
+        console.log(this.state.favorites, '<----- state.favorites in DID UPDATE')
+    }
+    
 
     handleSubmit(e) {
         e.preventDefault();
-        const categories = `${this.state.dateType}`;
+        const category = this.state.optionCategory[Math.floor(Math.random() * this.state.optionCategory.length)];
+        const description = this.state.optionDescription[Math.floor(Math.random() * this.state.optionDescription.length)];
+        const categories = category +',' + description
         const location = e.target.location.value;
         if (location === "Select one..."){
             return;
@@ -72,8 +83,8 @@ class App extends Component {
         return (
             <div>
                 <h1 className="title">Lazy Date</h1>
-                <CategoriesContainer handleSubmit={this.handleSubmit} optionLocation={this.state.optionLocation} optionDescription={this.state.optionDescription} randomize={this.randomize} dateType={this.state.dateType} />
-                <ResultsContainer results={this.state.results} />
+                <CategoriesContainer handleSubmit={this.handleSubmit} optionLocation={this.state.optionLocation} optionDescription={this.state.optionDescription} dateType={this.state.dateType} />
+                <ResultsContainer addToFavs={this.addToFavs} results={this.state.results} />
             </div>
         )
     }

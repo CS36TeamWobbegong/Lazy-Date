@@ -5,7 +5,7 @@ export class Results extends Component {
     
     render() {  
         const result = this.props.results;
-        
+ 
         return (
             <div className='resultBox'>
               <figure className='resultImage'>
@@ -17,6 +17,7 @@ export class Results extends Component {
                       <li>Address: {result.location}</li>
                       <li>Phone: {result.contact ? result.contact : 'Not Available'}</li>
                   </ul>
+                  <button id={this.props.id} onClick={this.props.addToFavs}>Add To Favorites</button>
                 </div>
             </div>
         )
