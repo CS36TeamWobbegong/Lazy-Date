@@ -23,26 +23,15 @@ class App extends Component {
     }
 
     handleSubmit(e) {
-        console.log('button clicked!')
         e.preventDefault()
-        const requestBody = {
-            categories: `${e.target.optionDescription.value}, ${this.state.optionCategory[Math.floor(Math.random() * this.state.optionCategory.length)]}`,
-            location: e.target.optionLocation.value,
-        }
-        console.log(requestBody);
-        fetch('/api/search/yelp', {
-            method: 'POST',
-            body: JSON.stringify(requestBody),
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        })
+        const categories = `${e.target.optionDescription.value},${this.state.optionCategory[Math.floor(Math.random() * this.state.optionCategory.length)]}`;
+        const location = e.target.optionLocation.value;
+
+        fetch(`/api/search/yelp/${categories}/${location}`)
             .then((data) => {
-                console.log(data, '<---- DATA IN FIRST THEN')
                 return data.json();
             })
             .then((jsonData) => {
-                console.log(jsonData, '<---- DATA IN SECOND THEN')
                 this.setState({
                     results: jsonData
                 })

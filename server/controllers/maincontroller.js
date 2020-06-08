@@ -5,9 +5,9 @@ const maincontroller = {};
 
 maincontroller.getYelpRecs = (req, res, next) => {
   //declare a variable to hold string of categories
-  const urlString = req.body.categories;
+  const urlString = req.params.categories;
   //declare a variable to hold string/number of zip code
-  const urlLocation = req.body.location;
+  const urlLocation = req.params.location;
   //use object literals to build api call string with result limit of 5
   const apiCall = `https://api.yelp.com/v3/businesses/search?limit=5&term=${urlString}&location=${urlLocation}`;
   //example: https://api.yelp.com/v3/businesses/search?limit=5&term=hiking&location=90025
@@ -28,7 +28,7 @@ maincontroller.getYelpRecs = (req, res, next) => {
       //declare an empty array to hold components of results to send to client
       let newArr = [];
       //utilize a for loop to iterate through the results.businesses array
-      for(let i = 0; i <results.businesses.length; i++) {
+      for(let i = 0; i < results.businesses.length; i++) {
       //create a deconstructed object for businesses at each index
       const {name, image_url, location, display_phone} = results.businesses[i];
       //push the deconstructed object to the empty array 
