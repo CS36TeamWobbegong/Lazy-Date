@@ -7,9 +7,34 @@ const path = require('path')
 const nodeFetch = require('node-fetch')
 //declare a router for api requests
 const apiRouter = require('./routes/api.js')
+const mongoose = require('mongoose');
+require('dotenv').config();
+
+const URI = process.env.MONGO_URI
 
 
+mongoose.connect(URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+    .then(() => console.log('CONNECTED TO MONGO DB'))
+    .catch((err) => console.log('ERROR CONNECTING TO DB: ', err));
 
+const Schema = mongoose.Schema;
+const usersSchema = new Schema({
+    username: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    favorites: Array
+})
+
+const Users = mongoose.model('users', usersSchema);
 
 //initialize server
 const app = express();
@@ -20,10 +45,9 @@ const PORT = 3000;
 //set-up request processing
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.get('/', (req, res) => {
-//     console.log('LINE 22 DO I SHOW UP');
-//     res.redirect('/signup.html');
-// })
+app.get('/', (req, res) => {
+    res.redirect('/signup.html');
+})
 //static files
 app.use(express.static(path.resolve(__dirname, '../client')))
 app.use('/build', express.static(path.resolve(__dirname, '../build')))
@@ -31,16 +55,44 @@ app.use('/build', express.static(path.resolve(__dirname, '../build')))
 //     res.sendFile(path.join(__dirname, '../client/signup.html'))
 // })
 
-//app.use('/home', express.static(path.resolve(__dirname, '../client')))
+app.use('/home', express.static(path.resolve(__dirname, '../client')))
 //send /api requests to api router
 app.use('/api', apiRouter)
 
-//handler for '/'
-// app.get('/', (req, res) => {
-//     // I DONT THINK THIS STUFF MATTERS  WE NEVER ENTER THIS EXECUTION CONTEXT
-//     console.log('inside first get');
-//     res.sendStatus(200)
-// })
+app.post('/signup',(req, res) => {
+    console.log('do i show up')
+    console.log(req.body)
+    // create user in database useing req.body for username and password with a create
+    const username = req.body.username;
+    const password = req.body.password;
+    Users.create( {username, password}, (err, data) => {
+        if (err){
+            console.log("ERROR IN CREATE USER")
+            return res.status(500).json('Error, check server log for details')
+        }
+        console.log('SUCCESSFULLY ADDED USER')
+        res.redirect('/home')
+    } )
+})
+
+app.post('/login', (req, res) => {
+    console.log(req.body, '<---- req.body')
+    const username = req.body.username;
+    const password = req.body.password;
+    Users.find({username: username}, (err, result) => {
+        if (err){
+            console.log('ERROR IN FIND USER');
+            res.status(500).json('Error, check server log for details')
+        }
+        if (result.length === 0 || result[0].password !== password){
+            console.log('no results found with that username')
+            // maybe just have something pop up on the page like yo go to the signup page or try again
+            return res.redirect('/login.html');
+        }
+        console.log('SUCCESSFULLY LOGGED IN');
+        res.redirect('/home');
+    })
+})
 
 //generic app get handler
 //route error handler
