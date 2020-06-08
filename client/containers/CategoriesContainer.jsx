@@ -33,10 +33,10 @@ class CategoriesContainer extends Component {
             )
         }
 
-        let displayDateType;
-        if (this.props.dateType) {
-            displayDateType = this.props.dateType.split(",").join(" and ")
-        }
+        // let displayDateType;
+        // if (this.props.dateType) {
+        //     displayDateType = this.props.dateType.split(",").join(" and ")
+        // }
 
         return (
             <div className='box'>
