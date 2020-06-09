@@ -8,6 +8,10 @@ body {
     font-family: 'Pacifico', cursive;
 }
 
+h1 {
+    font-size: 3rem;
+}
+
 .title {
     text-align: center;
     font-size: 6rem;
@@ -34,6 +38,7 @@ body {
     border: #F5ACBD solid 2px;
     padding: 12px;
     margin: 12px;
+    font-family: 'Trebuchet MS', Helvetica, sans-serif
     
 }
 
@@ -86,6 +91,10 @@ li {
 
 a {
     color: #DC5978
+}
+
+.resultsTitle {
+    font-size: 4rem;
 }
 
 

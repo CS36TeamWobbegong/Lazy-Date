@@ -12,7 +12,7 @@ export class ResultsContainer extends Component {
 
         return (
             <div className='box'>
-                <h1>Results</h1>
+                <h1 className='resultsTitle'>Results</h1>
                 {resultsInfo}
             </div>
         )
