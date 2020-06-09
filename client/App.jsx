@@ -28,7 +28,7 @@ class App extends Component {
                 { city: "Sherman Oaks", zipcode: 91403 },
                 { city: "Silverlake", zipcode: 90026 },
                 { city: "Studio City", zipcode: 91604 },
-                { city: "Venice", zipcode: 90292},
+                { city: "Venice", zipcode: 90292 },
                 { city: "WeHo", zipcode: 90069 },
             ],
             favorites: []
@@ -37,32 +37,32 @@ class App extends Component {
         this.addToFavs = this.addToFavs.bind(this);
     }
 
-    
-    addToFavs(e){
+
+    addToFavs(e) {
         // add event to favorites array in state, if event does not already exist in favorites
         let object = this.state.favorites[e.target.id];
-        
+
         let temp = this.state.favorites;
-        if (!this.state.results.includes(object)){
+        if (!this.state.results.includes(object)) {
             temp.push(this.state.results[e.target.id])
             this.setState({
                 favorites: temp
             })
         }
     }
-    
-    componentDidUpdate(){
+
+    componentDidUpdate() {
         console.log(this.state.favorites, '<----- state.favorites in DID UPDATE')
     }
-    
+
 
     handleSubmit(e) {
         e.preventDefault();
         const category = this.state.optionCategory[Math.floor(Math.random() * this.state.optionCategory.length)];
         const description = this.state.optionDescription[Math.floor(Math.random() * this.state.optionDescription.length)];
-        const categories = category +',' + description
+        const categories = category + ',' + description
         const location = e.target.location.value;
-        if (location === "Select one..."){
+        if (location === "Select one...") {
             return;
         }
         console.log(location, 'location')
@@ -83,7 +83,7 @@ class App extends Component {
             <div>
                 <h1 className="title">Lazy Date</h1>
                 <CategoriesContainer handleSubmit={this.handleSubmit} optionLocation={this.state.optionLocation} optionDescription={this.state.optionDescription} dateType={this.state.dateType} />
-                <ResultsContainer addToFavs={this.addToFavs} results={this.state.results} />
+                <ResultsContainer id="results" addToFavs={this.addToFavs} results={this.state.results} />
             </div>
         )
     }
