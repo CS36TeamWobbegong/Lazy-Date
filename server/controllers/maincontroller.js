@@ -1,3 +1,4 @@
+//import fetch 
 const fetch = require('node-fetch')
 //import .env node
 require('dotenv').config()
@@ -6,7 +7,7 @@ const API_KEY = process.env.API_KEY
 //declare the contorller object
 const maincontroller = {};
 
-
+//middleware for handling API get request to Yelp
 maincontroller.getYelpRecs = (req, res, next) => {
   //declare a variable to hold string of categories
   const urlString = req.params.categories;
@@ -19,7 +20,7 @@ maincontroller.getYelpRecs = (req, res, next) => {
   fetch(apiCall,
     {
       headers: {
-        //yelpApiKey in header
+        //yelpApiKey in header; comes from the environmental variables
         "Authorization": API_KEY
       },
 
@@ -53,6 +54,10 @@ maincontroller.getYelpRecs = (req, res, next) => {
     })
 };
 
+
+//middleware for fetching API request from seat geeks
+//this is currently not used on front-end as the api fetch wasn't as flexible as that of yelp
+//had intended to add a conditional in client request; would use seat geek if the random generated string included "event"
 maincontroller.getSGRecs = (req, res, next) => {
   //declare a variable to hold string of categories
   const urlString = req.body.categories;
@@ -64,15 +69,15 @@ maincontroller.getSGRecs = (req, res, next) => {
     {
       headers: {
         //yelpApiKey in header
-        'Authorization': 'Basic T1RNek1EazFNbnd4TlRreE5EQTNPVGd5TGpVMTo='
-      },
+        'Authorization': 'add code here'//will need to obtain from Seat Geek and add to environmental variables
+      }
     })
     //then process results from API call into json
     .then(data => {
 
       return data.json()
     })
-    //then assign results to res.locals.results
+    //then assign results to res.locals.results; similar to the yelp request, but didn't deconstruct results first
     .then(results => {
       const formattedResults = [];
       for (let i = 0; i < results.events.length; i++) {
