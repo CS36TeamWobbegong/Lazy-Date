@@ -48,13 +48,8 @@ class CategoriesContainer extends Component {
                         <option>Select one...</option>
                         {locationArray}
                     </select>
-<<<<<<< HEAD
                     <h1>Looking for:</h1>
                     <button onClick={this.props.randomize} className='randomize-btn'>Anything EXCEPT dinner & drinks</button>
-=======
-                    <h2>Looking for:</h2>
-                    <button>Anything EXCEPT dinner & drinks</button>
->>>>>>> master
                 </form>
             </div>
         )

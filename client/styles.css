@@ -76,6 +76,19 @@ li {
     color: #F5ACBD;
 }
 
+.fav-btn {
+    border-radius: .4rem;
+    padding: .5rem 1.5rem;
+    margin-top: .5rem;
+    background: #F5ACBD;
+    color:  #5C4148;   
+}
+
+a {
+    color: #DC5978
+}
+
+
 /* Color Theme Swatches in Hex */
 .Dating-During-the-Apocalypse-no-6-1-hex { color: #5C2532; }
 .Dating-During-the-Apocalypse-no-6-2-hex { color: #F5ACBD; }
