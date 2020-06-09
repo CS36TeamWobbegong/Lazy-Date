@@ -42,14 +42,14 @@ class CategoriesContainer extends Component {
             <div className='box'>
 
 
-                <form onSubmit={this.props.handleSubmit}>
-                    <h2>Let's explore:</h2>
-                    <select id="location" name="location" >
+                <form onSubmit={this.props.handleSubmit} className='form'>
+                    <h1>Let's explore:</h1>
+                    <select id="location" name="location" className='select'>
                         <option>Select one...</option>
                         {locationArray}
                     </select>
-                    <h2>Looking for:</h2>
-                    <button>Anything EXCEPT dinner & drinks</button>
+                    <h1>Looking for:</h1>
+                    <button onClick={this.props.randomize} className='randomize-btn'>Anything EXCEPT dinner & drinks</button>
                 </form>
             </div>
         )

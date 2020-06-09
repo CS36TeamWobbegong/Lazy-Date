@@ -10,8 +10,8 @@ class App extends Component {
         this.state = {
             //results from server
             results: [],
-            optionCategory: ["Games", "Arts and culture", "Outdoor", "Culinary"],
-            optionDescription: ["Fun", "Adventure", "Relaxation", "Entertainment"],
+            optionCategory: ["Games", "Arts and Culture", "Hiking", "Live Shows", "Relaxation"],
+            optionDescription: ["Fun"],
             optionLocation: [
                 { city: "Arts District", zipcode: 90013 },
                 { city: "Beverly Hills", zipcode: 90210 },
@@ -31,7 +31,6 @@ class App extends Component {
                 { city: "Venice", zipcode: 90292},
                 { city: "WeHo", zipcode: 90069 },
             ],
-            dateType: null,
             favorites: []
         }
         this.handleSubmit = this.handleSubmit.bind(this);

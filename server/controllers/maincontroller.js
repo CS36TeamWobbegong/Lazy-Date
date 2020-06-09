@@ -35,10 +35,10 @@ maincontroller.getYelpRecs = (req, res, next) => {
       //utilize a for loop to iterate through the results.businesses array
       for (let i = 0; i < results.businesses.length; i++) {
         //create a deconstructed object for businesses at each index
-        const { name, image_url, location, display_phone } = results.businesses[i];
+        const { name, image_url, url, location, display_phone } = results.businesses[i];
         //push the deconstructed object to the empty array 
         //ran join on the location.display_address to turn it into a string
-        newArr.push({ name: name, image_url: image_url, location: location.display_address.join(', '), contact: display_phone })
+        newArr.push({ name: name, image_url: image_url, url: url, location: location.display_address.join(', '), contact: display_phone })
       }
       //add newArr to the res locals results
       res.locals.results = newArr;
