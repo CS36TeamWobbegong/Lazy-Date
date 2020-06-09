@@ -17,6 +17,10 @@ h1 {
     font-weight: 300;
 }
 
+h1 {
+    font-size: 3rem;
+}
+
 .title {
     text-align: center;
     font-size: 6rem;
@@ -45,6 +49,7 @@ h1 {
     border: #F5ACBD solid 2px;
     padding: 12px;
     margin: 12px;
+    font-family: 'Trebuchet MS', Helvetica, sans-serif
     
 }
 
@@ -110,6 +115,10 @@ a {
 div .box {
     border: #F5ACBD solid 2px;
 }
+.resultsTitle {
+    font-size: 4rem;
+}
+
 
 /* Color Theme Swatches in Hex */
 .Dating-During-the-Apocalypse-no-6-1-hex { color: #5C2532; }
